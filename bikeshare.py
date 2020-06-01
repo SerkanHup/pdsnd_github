@@ -1,3 +1,4 @@
+#bikeshare.py refactoring 1.0
 import time
 import pandas as pd
 import numpy as np
@@ -234,10 +235,10 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
-        #time_stats(df,city,month,day)
-        #station_stats(df,city,month,day)
-        #trip_duration_stats(df,city,month,day)
-        #user_stats(df,city,month,day)
+        time_stats(df,city,month,day)
+        station_stats(df,city,month,day)
+        trip_duration_stats(df,city,month,day)
+        user_stats(df,city,month,day)
         display_raw(df,city,month,day)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
