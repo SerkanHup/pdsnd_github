@@ -1,5 +1,5 @@
-#bikeshare.py
-
+#bikeshare.py refactoring 1.0
+#bikeshare.py refactoring 2.0
 import time
 import pandas as pd
 import numpy as np
@@ -61,7 +61,6 @@ def load_data(city, month, day):
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-
 
     # filter by month if applicable
     if month != 'all':
@@ -164,7 +163,13 @@ def trip_duration_stats(df,city,month,day):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+<<<<<<< HEAD
 
+||||||| e485058
+
+
+=======
+>>>>>>> refactoring
 def user_stats(df,city,month,day):
     """Displays statistics on bikeshare users."""
 
