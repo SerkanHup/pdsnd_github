@@ -1,3 +1,5 @@
+#bikeshare.py
+
 import time
 import pandas as pd
 import numpy as np
@@ -41,7 +43,6 @@ def get_filters():
         else :
             break
     return city, month, day
-
 
 def load_data(city, month, day):
     """
@@ -164,7 +165,6 @@ def trip_duration_stats(df,city,month,day):
     print('-'*40)
 
 
-
 def user_stats(df,city,month,day):
     """Displays statistics on bikeshare users."""
 
@@ -180,7 +180,6 @@ def user_stats(df,city,month,day):
     print('\n Filter city : {} month: {} : day {}'.format(city.upper(),month.upper(),day.upper()))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
     if city in ('chicago','new york city') :
         start_time = time.time()
@@ -208,7 +207,6 @@ def user_stats(df,city,month,day):
         print('Most Common Birth Year :',  int(common_birth) ,'Filter city : {} month: {} : day {}'.format(city.upper(),month.upper(),day.upper()))
         print("\nThis took %s seconds." % (time.time() - start_time))
 
-
     else :
         print('There is no Gender or birtdate info for washington')
 
@@ -228,22 +226,20 @@ def display_raw(df,city,month,day):
         if(more5 !='yes'):
             break
 
-
 def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
-        #time_stats(df,city,month,day)
-        #station_stats(df,city,month,day)
-        #trip_duration_stats(df,city,month,day)
-        #user_stats(df,city,month,day)
+        time_stats(df,city,month,day)
+        station_stats(df,city,month,day)
+        trip_duration_stats(df,city,month,day)
+        user_stats(df,city,month,day)
         display_raw(df,city,month,day)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
