@@ -1,4 +1,5 @@
 #bikeshare.py refactoring 1.0
+#bikeshare.py refactoring 2.0
 import time
 import pandas as pd
 import numpy as np
@@ -43,7 +44,6 @@ def get_filters():
             break
     return city, month, day
 
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -61,7 +61,6 @@ def load_data(city, month, day):
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-
 
     # filter by month if applicable
     if month != 'all':
@@ -164,8 +163,6 @@ def trip_duration_stats(df,city,month,day):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
-
 def user_stats(df,city,month,day):
     """Displays statistics on bikeshare users."""
 
@@ -209,7 +206,6 @@ def user_stats(df,city,month,day):
         print('Most Common Birth Year :',  int(common_birth) ,'Filter city : {} month: {} : day {}'.format(city.upper(),month.upper(),day.upper()))
         print("\nThis took %s seconds." % (time.time() - start_time))
 
-
     else :
         print('There is no Gender or birtdate info for washington')
 
@@ -229,7 +225,6 @@ def display_raw(df,city,month,day):
         if(more5 !='yes'):
             break
 
-
 def main():
     while True:
         city, month, day = get_filters()
@@ -244,7 +239,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
